@@ -6,14 +6,19 @@ public class Crab extends Actor
 {
     public void act()
     {
-        if( isAtEdge() )
+        if (Greenfoot.isKeyDown("left"))
         {
-            turn(17);
-        }
-        if (Greenfoot.getRandomNumber(100) < 10 )
+            turn (-4);
+        }    
+        if (Greenfoot.isKeyDown("right"))
         {
-            turn(Greenfoot.getRandomNumber(45));
+            turn(4);
         }
-        move();
+        move(5);
+        if(isTouching(Worm.class))
+        {
+            removeTouching(Worm.class);
+            Greenfoot.playSound ("crab.noise");
+        }
     }
 }  
